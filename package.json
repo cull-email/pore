@@ -34,7 +34,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "cull-email-imap": "git@github.com:cull-email/imap.git#v0.1.0",
+    "cull-email-imap": "https://github.com/cull-email/imap.git#v0.1.0",
     "moment": "^2.24.0",
     "psl": "^1.8.0"
   },
