@@ -40,7 +40,7 @@ Also, see [tests](https://github.com/cull-email/pore/blob/master/test/origin.spe
 Analyze chronological data to bucket data by date, hour, day of week and a nested computation by day of week and then by hour.
 
 ```js
-import { Chronology } from 'cull-email-pore';
+import { Chronology } from '@cull/pore';
 
 // envelopes retrieved from a `cull-email-imap` Client
 let envelopes = [];
