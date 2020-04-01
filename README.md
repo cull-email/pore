@@ -1,4 +1,4 @@
-# pore for [cull](https://cull.email)
+# pore for [Cull](https://cull.email)
 
 An email data analysis library.
 
