@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { Envelope } from 'cull-email-imap';
+import { Envelope } from '@cull/imap';
 import Identity from './identity';
 /**
  * Analytical primative translated from email metadata.

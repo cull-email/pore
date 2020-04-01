@@ -1,6 +1,6 @@
 import moment, { Moment } from 'moment';
 import psl from 'psl';
-import { Envelope } from 'cull-email-imap';
+import { Envelope } from '@cull/imap';
 
 import Identity from './identity';
 
