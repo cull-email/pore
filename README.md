@@ -5,19 +5,19 @@ An email data analysis library.
 ## Installation
 
 ```sh
-npm install cull-email-pore
+npm install @cull/pore
 ```
 
 ## Usage
 
-Generate analytical collections from email _envelopes_ (see [cull-email-imap](https://github.com/cull-email/imap)).
+Generate analytical collections from email _envelopes_ (see [@cull/imap](https://github.com/cull-email/imap)).
 
 ### Origin
 
 Analyze sender data to identify distinct senders, addresses and domains. Also, generate a collection of nodes (computing the number of emails for each distinct value) and links connecting the three for use with a data visualization library like [d3-sankey](https://github.com/d3/d3-sankey).
 
 ```js
-import { Origin } from 'cull-email-pore';
+import { Origin } from '@cull/pore';
 
 // envelopes retrieved from a `cull-email-imap` Client
 let envelopes = [];
@@ -33,7 +33,7 @@ let domains = [...analysis.domains]; // distinct domains
 let sankey = analysis.sankey(); // generate nodes and links
 ```
 
-Also, see [tests](test/origin.spec.ts).
+Also, see [tests](https://github.com/cull-email/pore/blob/master/test/origin.spec.ts).
 
 ### Chronology
 
@@ -56,8 +56,8 @@ let byWeekday = [...analysis.byWeekday];
 let byHourByWeekday = [...analysis.byHourByWeekday];
 ```
 
-Also, see [tests](test/chronology.spec.ts).
+Also, see [tests](https://github.com/cull-email/pore/blob/master/test/chronology.spec.ts).
 
 ## Development
 
-[`makefile`](makefile) codifies directives for building, testing, linting and other development oriented tasks.
+[`makefile`](https://github.com/cull-email/pore/blob/master/makefile) codifies directives for building, testing, linting and other development oriented tasks.
