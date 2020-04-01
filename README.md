@@ -19,7 +19,7 @@ Analyze sender data to identify distinct senders, addresses and domains. Also, g
 ```js
 import { Origin } from '@cull/pore';
 
-// envelopes retrieved from a `cull-email-imap` Client
+// envelopes retrieved from a `@cull/imap` Client
 let envelopes = [];
 
 let analysis = new Origin(envelopes);
@@ -42,7 +42,7 @@ Analyze chronological data to bucket data by date, hour, day of week and a neste
 ```js
 import { Chronology } from '@cull/pore';
 
-// envelopes retrieved from a `cull-email-imap` Client
+// envelopes retrieved from a `@cull/imap` Client
 let envelopes = [];
 
 let analysis = new Chronology(envelopes);
