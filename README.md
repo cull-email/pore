@@ -33,7 +33,7 @@ let domains = [...analysis.domains]; // distinct domains
 let sankey = analysis.sankey(); // generate nodes and links
 ```
 
-Also, see [tests](https://github.com/cull-email/pore/blob/master/test/origin.spec.ts).
+Also, see [tests](https://github.com/cull-email/pore/blob/master/src/origin.test.ts).
 
 ### Chronology
 
@@ -56,7 +56,7 @@ let byWeekday = [...analysis.byWeekday];
 let byHourByWeekday = [...analysis.byHourByWeekday];
 ```
 
-Also, see [tests](https://github.com/cull-email/pore/blob/master/test/chronology.spec.ts).
+Also, see [tests](https://github.com/cull-email/pore/blob/master/src/chronology.test.ts).
 
 ## Development
 
