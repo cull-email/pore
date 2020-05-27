@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const moment_1 = __importDefault(require("moment"));
-const psl_1 = __importDefault(require("psl"));
+const identity_1 = __importDefault(require("./identity"));
 /**
  * Analytical primative translated from email metadata.
  */
@@ -16,21 +16,12 @@ class Datum {
      * @todo investigate reliance on envelope date field
      * @todo verify date format to guarantee for parsing reliability
      */
-    constructor(envelope) {
+    constructor(client, mailbox, envelope) {
+        this.client = client;
+        this.mailbox = mailbox;
         this.envelope = envelope;
         this.moment = moment_1.default(envelope.date, 'ddd, M MMM YYYY hh:mm:ss ZZ');
-        this.from = envelope.from.map(from => {
-            let value = from.address;
-            let email = from.address.split('@');
-            let parsed = psl_1.default.parse(email[1]);
-            return Object.assign(Object.assign({}, from), { value, domain: parsed.domain });
-        });
-    }
-    get client() {
-        return this.envelope.client.name;
-    }
-    get mailbox() {
-        return this.envelope.mailbox;
+        this.from = envelope.from.map(address => new identity_1.default(address));
     }
 }
 exports.default = Datum;

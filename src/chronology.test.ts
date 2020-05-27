@@ -1,9 +1,9 @@
 import test from 'ava';
 import Chronology from '../src/chronology';
-import mockDatum from './datum';
+import Datum from './datum.mock';
 
 test('Chronology can group data by date', t => {
-  let data = [mockDatum()];
+  let data = [Datum()];
   let c = new Chronology(data);
   let date = data[0].moment.format('YYYY-MM-DD');
   t.is([...c.byDate.keys()].length, 1);
@@ -12,7 +12,7 @@ test('Chronology can group data by date', t => {
   t.deepEqual(retrieved![0], data[0]);
 });
 test('Chronology can group data by hour', t => {
-  let data = [mockDatum()];
+  let data = [Datum()];
   let c = new Chronology(data);
   let keys = [...c.byHour.keys()];
   t.is(keys.length, 24);
@@ -23,7 +23,7 @@ test('Chronology can group data by hour', t => {
 });
 
 test('Chronology can group data by weekday', t => {
-  let data = [mockDatum()];
+  let data = [Datum()];
   let c = new Chronology(data);
   let keys = [...c.byWeekday.keys()];
   t.is(keys.length, 7);
@@ -34,7 +34,7 @@ test('Chronology can group data by weekday', t => {
 });
 
 test('Chronology can group and nest data by hour for weekdays', t => {
-  let data = [mockDatum()];
+  let data = [Datum()];
   let c = new Chronology(data);
   let hour = data[0].moment.hour();
   let weekday = data[0].moment.isoWeekday() - 1;

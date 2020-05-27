@@ -1,10 +1,18 @@
 import { Moment } from 'moment';
-import { Envelope } from '@cull/imap';
+import Client, { Envelope, Mailbox } from '@cull/imap';
 import Identity from './identity';
 /**
  * Analytical primative translated from email metadata.
  */
 export default class Datum {
+    /**
+     * Originating IMAP client
+     */
+    client: Client;
+    /**
+     * Originating Mailbox
+     */
+    mailbox: Mailbox;
     /**
      * Originating email envelope
      */
@@ -24,7 +32,5 @@ export default class Datum {
      * @todo investigate reliance on envelope date field
      * @todo verify date format to guarantee for parsing reliability
      */
-    constructor(envelope: Envelope);
-    get client(): string;
-    get mailbox(): string;
+    constructor(client: Client, mailbox: Mailbox, envelope: Envelope);
 }

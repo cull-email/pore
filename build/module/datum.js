@@ -1,5 +1,5 @@
 import moment from 'moment';
-import psl from 'psl';
+import Identity from './identity';
 /**
  * Analytical primative translated from email metadata.
  */
@@ -11,20 +11,11 @@ export default class Datum {
      * @todo investigate reliance on envelope date field
      * @todo verify date format to guarantee for parsing reliability
      */
-    constructor(envelope) {
+    constructor(client, mailbox, envelope) {
+        this.client = client;
+        this.mailbox = mailbox;
         this.envelope = envelope;
         this.moment = moment(envelope.date, 'ddd, M MMM YYYY hh:mm:ss ZZ');
-        this.from = envelope.from.map(from => {
-            let value = from.address;
-            let email = from.address.split('@');
-            let parsed = psl.parse(email[1]);
-            return Object.assign(Object.assign({}, from), { value, domain: parsed.domain });
-        });
-    }
-    get client() {
-        return this.envelope.client.name;
-    }
-    get mailbox() {
-        return this.envelope.mailbox;
+        this.from = envelope.from.map(address => new Identity(address));
     }
 }

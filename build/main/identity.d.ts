@@ -1,19 +1,20 @@
+import { Address } from '@cull/imap';
 /**
- * The value and isolated components that make up a typical, singular from/to header field value.
+ * The value and isolated components of a singular from/to header field value (i.e. email address).
  *
- * e.g. `Jaclyn <jaclyn@email.example.com>` would be represented as:
+ * e.g. `Jaclyn <jaclyn@mx.cull.email>` would be represented as:
  * ```
  *  {
- *    value:   "Jaclyn <jaclyn@mail.example.com>",
  *    name:    "Jaclyn",
- *    address: "jaclyn@mail.example.com"
- *    domain:  "example.com"
+ *    address: "jaclyn@mx.cull.email"
+ *    domain:  "cull.email"
  *  }
  * ```
  */
-export default interface Identity {
-    value: string;
-    name: string;
+export default class Identity {
+    name?: string;
     address: string;
     domain: string;
+    constructor(address: Address);
+    toString(): string;
 }

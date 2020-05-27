@@ -21,11 +21,11 @@ export default class Origin extends Data {
         this.addresses = new Set();
         this.domains = new Set();
         this.data
-            .flatMap(d => d.from)
-            .forEach(d => {
-            this.senders.add(d.value);
-            this.addresses.add(d.address);
-            this.domains.add(d.domain);
+            .flatMap(datum => datum.from)
+            .forEach(identity => {
+            this.senders.add(identity.toString());
+            this.addresses.add(identity.address);
+            this.domains.add(identity.domain);
         });
     }
     /**
@@ -37,9 +37,9 @@ export default class Origin extends Data {
     sankey() {
         let graph = new SankeyGraph();
         this.senders.forEach(sender => {
-            let data = this.data.filter(d => d.from.find(f => f.value === sender));
+            let data = this.data.filter(d => d.from.find(f => f.toString() === sender));
             if (data.length > 0) {
-                let first = data[0].from.find(f => f.value === sender);
+                let first = data[0].from.find(f => f.toString() === sender);
                 if (first !== undefined) {
                     let address = first.address;
                     let source = createNode({ sender });

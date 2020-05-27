@@ -1,4 +1,4 @@
-import moment, { Moment } from 'moment';
+import { Moment } from 'moment';
 import Datum from './datum';
 import Data from './data';
 export declare const dateKeyFormat: string;
@@ -39,7 +39,7 @@ export default class Chronology extends Data {
     byHourByWeekday: Map<number, Map<number, Datum[]>>;
     protected compute(): void;
 }
-export declare let chronologyByDate: (extent: [moment.Moment, moment.Moment]) => Map<string, Datum[]>;
+export declare let chronologyByDate: (extent: [Moment, Moment]) => Map<string, Datum[]>;
 export declare let chronologyByHour: () => Map<number, Datum[]>;
 export declare let chronologyByWeekday: () => Map<number, Datum[]>;
 export declare let chronologyByHourByWeekday: () => Map<number, Map<number, Datum[]>>;
